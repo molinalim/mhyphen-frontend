@@ -6,12 +6,16 @@ name: Build and deploy Node.js app to Azure Web App - mhyphen
 on:
   push:
     branches:
-      - feature/github-action
+      - main
+      - feature/*
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
+    default: 
+      run: 
+        working-directory: "./mhyphen"
 
     steps:
       - uses: actions/checkout@v2
@@ -53,4 +57,4 @@ jobs:
           app-name: 'mhyphen'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_945B867E068342699BD83E5D2EB741E8 }}
-          package: .
+          package: "./mhyphen/build"
