@@ -93,7 +93,7 @@ export interface LoginVariables {
 }
 
 const CLIENT_ID = "a12b7d82fa895598caba";
-const REDIRECT_URI = "http://localhost:3000/home";
+const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
 
 export const Header: React.FC<HeaderProps> = ({ user }) => {
   const history = useHistory();
