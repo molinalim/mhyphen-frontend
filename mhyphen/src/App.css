@@ -1,5 +1,24 @@
 .App {
-  text-align: center;
+  background: #000;
+}
+
+.booking__ticket {
+  background-image: url("./ticket/1.svg");
+  background-repeat: no-repeat;
+  background-position: center 110%;
+  height: 500px;
+  background-size: 90%;
+  margin-bottom: 0px;
+}
+
+.ticket__term {
+  background-image: url("./ticket/2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  background-size: 90%;
+  margin-bottom: 30px;
+  margin-top: 0px;
 }
 
 .App-logo {
