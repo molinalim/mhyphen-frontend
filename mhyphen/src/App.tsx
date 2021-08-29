@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Redirect, Route, Switch } from "react-router";
+import "./App.css";
+
+import { Header } from "./stories/Header/Header";
+import { Footer } from "./stories/Footer/Footer";
+import { BookingForm } from "./stories/BookingForm/BookingForm";
+import FeedPage from "./FeedPage";
+import { useQuery } from "@apollo/client";
+import { SELF } from "./api/queries";
+import { Self } from "./api/__generated__/Self";
 
 function App() {
+  const { loading, error, data } = useQuery<Self>(SELF);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header user={data?.self} />
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+        <Route
+          path="/home"
+          render={() => <FeedPage pageTitle="Now Showing" />}
+        />
+        <Route path="/booking">
+          <div className="booking__ticket">
+            <BookingForm />
+          </div>
+          <div className="ticket__term"></div>
+        </Route>
+      </Switch>
+      <Footer />
     </div>
   );
 }
