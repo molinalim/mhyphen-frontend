@@ -95,6 +95,8 @@ export interface LoginVariables {
 const CLIENT_ID = "a12b7d82fa895598caba";
 const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
 
+export default CLIENT_ID;
+
 export const Header: React.FC<HeaderProps> = ({ user }) => {
   const history = useHistory();
   const classes = useStyles();
