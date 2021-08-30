@@ -22,6 +22,7 @@ import {
   DialogContent,
   DialogContentText,
 } from "@material-ui/core";
+import { CardElement, Elements } from "@stripe/react-stripe-js";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -88,7 +89,6 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
       });
       setSubmit(true);
       setDialog(true);
-      setNotLogin(false);
     } catch (e) {
       console.log(e);
       setNotLogin(true);
@@ -100,23 +100,15 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
       <div className={classes.form}>
         <Typography variant="h4">FILL IN YOUR TICKET</Typography>
         {submit ? (
-          <div>
-            <Grid>
-              Congratulations! Your booking has been made successfully. Your
-              booking reference is 〔M{String(movieId)}@
-              {booked.toLocaleString()}〕 .
-            </Grid>
-          </div>
+          <Grid>Congratulations! Your booking has been made successfully.</Grid>
         ) : null}
         {notLogin ? (
-          <Grid className={classes.notLoggedIn}>
-            Please make sure you are logged in and selected a movie.
-          </Grid>
+          <Grid className={classes.notLoggedIn}>Please log in first!</Grid>
         ) : null}
         <Grid container spacing={4}>
           <Grid item xs={12} sm={12}>
             <FormControl>
-              <InputLabel id="demo-customized-select-label"> Movie </InputLabel>
+              <InputLabel id="demo-customized-select-label">Movie</InputLabel>
               <Select
                 labelId="demo-customized-select-label"
                 id="demo-customized-select"
@@ -170,7 +162,7 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
         <Button
           className={classes.button}
           backgroundColor="#372854"
-          label="Book"
+          label="Submit"
           onClick={handleSubmit}
           primary
           size="medium"
@@ -207,12 +199,15 @@ const ExternalDialog = ({
 
   return (
     <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-      <DialogTitle>Your booking has been recorded!</DialogTitle>
+      <DialogTitle>I am opned</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          Please take a screenshot of the completed ticket. Show the ticket to
-          the staff and pay $25 when you arrive.
-        </DialogContentText>
+        <DialogContentText>CAARDD</DialogContentText>
+        <div>
+          <form id="payment__form" noValidate>
+            <label htmlFor="card-elemet">Card</label>
+            <CardElement />
+          </form>
+        </div>
       </DialogContent>
     </Dialog>
   );
