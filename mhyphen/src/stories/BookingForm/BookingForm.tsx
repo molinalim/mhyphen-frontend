@@ -66,11 +66,11 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
 
   const [addBooking] = useMutation<AddBooking>(ADD_BOOKING);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setMovieId(e.target.value);
   };
 
-  const handleDateChange = (date) => {
+  const handleDateChange = (date: any) => {
     setBooked(date);
   };
 

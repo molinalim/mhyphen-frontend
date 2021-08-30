@@ -18,7 +18,7 @@ function Banner() {
     fetchData();
   }, []);
   console.log(movie);
-  function cut(string, n) {
+  function cut(string: string, n: number) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
 
@@ -35,7 +35,9 @@ function Banner() {
         <h1 className="banner__title">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
-        <h1 className="banner__description">{cut(movie?.overview, 160)}</h1>
+        <h1 className="banner__description">
+          {cut(String(movie?.overview), 160)}
+        </h1>
         <a className="banner__button" href="/booking">
           GET YOUR TICKET NOW!
         </a>
