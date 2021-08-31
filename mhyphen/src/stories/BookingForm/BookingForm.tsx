@@ -23,6 +23,18 @@ import {
   DialogContent,
   DialogContentText,
 } from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import json2mq from "json2mq";
+
+function JavaScriptMedia() {
+  const matches = useMediaQuery(
+    json2mq({
+      minWidth: 700,
+    })
+  );
+
+  return matches;
+}
 
 //Styling of the form
 const useStyles = makeStyles((theme: Theme) => ({
@@ -38,6 +50,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   form__movie: {
     width: "490px",
   },
+  form__movie__mobile: {
+    width: "220px",
+  },
   form: {
     marginTop: "23%",
     textAlign: "center",
@@ -50,6 +65,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     backdropFilter: "blur( 3.5px )",
     borderRadius: "10px",
     border: "1px solid rgba( 255, 255, 255, 0.18 )",
+  },
+  form__mobile: {
+    marginTop: "23%",
+    textAlign: "center",
+    fontFamily: "Helvetica",
+    color: "#fff",
+    padding: "25px",
+    background: "rgba( 255, 255, 255, 0.40 )",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: "blur( 3.5px )",
+    borderRadius: "10px",
+    border: "1px solid rgba( 255, 255, 255, 0.18 )",
+    marginLeft: "5%",
+    marginRight: "5%",
   },
   button: {
     margin: "auto",
@@ -100,7 +129,7 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
   };
   return (
     <Container className={classes.form__container}>
-      <div className={classes.form}>
+      <div className={JavaScriptMedia() ? classes.form : classes.form__mobile}>
         {submit ? (
           <div>
             <CheckCircleTwoToneIcon fontSize="large" />
@@ -120,7 +149,13 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
         ) : null}
         <Grid container spacing={4}>
           <Grid item xs={12} sm={12}>
-            <FormControl className={classes.form__movie}>
+            <FormControl
+              className={
+                JavaScriptMedia()
+                  ? classes.form__movie
+                  : classes.form__movie__mobile
+              }
+            >
               <InputLabel id="demo-customized-select-label"> Movie </InputLabel>
               <Select
                 labelId="demo-customized-select-label"
@@ -227,8 +262,8 @@ const ExternalDialog = ({
       <DialogTitle>Your booking has been recorded!</DialogTitle>
       <DialogContent className={styles.content}>
         <DialogContentText>
-          Please take a screenshot of the completed ticket. Show the ticket to
-          the staff and pay $15 when you arrive.
+          Please take a screenshot of the completed ticket or keep your booking
+          reference. You may pay $15 when you arrive at the cinema.
         </DialogContentText>
         <Button
           backgroundColor="#130430"

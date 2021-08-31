@@ -2,6 +2,15 @@
   background: #000;
 }
 
+.booking__ticket__mobile {
+  background-image: url("./ticket/mobilebg.svg");
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 90px;
+}
+
 .booking__ticket {
   background-image: url("./ticket/1.3.svg");
   background-repeat: no-repeat;

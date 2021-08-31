@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./Banner.css";
 import axios from "axios";
+import json2mq from "json2mq";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 //axios stuffs
 const instance = axios.create({
@@ -15,6 +17,7 @@ const requests = {
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   fetchAnimations: `discover/movie?api_key=${API_KEY}&with_genres=16`,
   fetchSciFi: `discover/movie?api_key=${API_KEY}&with_genres=878`,
+  fetchRaya: `movie/527774-raya-and-the-last-dragon`,
 };
 
 //start of banner function
@@ -56,11 +59,17 @@ function Banner() {
         <a className="banner__button" href="/booking">
           GET YOUR TICKET NOW!
         </a>
-        <div className="sign">
-          <span className="fast-flicker">N</span>OW
-          <span className="flicker">&nbsp;SHO</span>
-          <span className="fast-flicker">WI</span>NG
-        </div>
+        {useMediaQuery(
+          json2mq({
+            minWidth: 700,
+          })
+        ) ? (
+          <div className="sign">
+            <span className="fast-flicker">N</span>OW
+            <span className="flicker">&nbsp;SHO</span>
+            <span className="fast-flicker">WI</span>NG
+          </div>
+        ) : null}
       </div>
       <div className="banner--fadeBottom" />
     </header>
