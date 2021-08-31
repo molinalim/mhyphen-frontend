@@ -53,7 +53,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'mhyphen'
-          slot-name: 'Production'
+          app-name: mhyphen
+          slot-name: Production
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_945B867E068342699BD83E5D2EB741E8 }}
           package: "./mhyphen/build"
