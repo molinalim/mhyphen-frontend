@@ -36,9 +36,6 @@ function App() {
           >
             <BookingForm />
           </div>
-          <div
-            className={matches ? "ticket__term" : "ticket__term__mobile"}
-          ></div>
         </Route>
       </Switch>
       <Footer />
