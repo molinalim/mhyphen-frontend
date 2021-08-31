@@ -1,5 +1,7 @@
 import { ImageList, ImageListItem } from "@material-ui/core";
 import CardListStyles from "./CardListStyles";
+import json2mq from "json2mq";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export interface CardListProps {
   cards: JSX.Element[];
@@ -10,9 +12,19 @@ const CardList = ({ cards, cols }: CardListProps): JSX.Element => {
   const styles = CardListStyles();
   return (
     <div className={styles.root}>
-      <ImageList className={styles.cardList} cols={7} rowHeight={"auto"}>
-        {Itemize(cards)}
-      </ImageList>
+      {useMediaQuery(
+        json2mq({
+          minWidth: 700,
+        })
+      ) ? (
+        <ImageList className={styles.cardList} cols={7} rowHeight={"auto"}>
+          {Itemize(cards)}
+        </ImageList>
+      ) : (
+        <ImageList className={styles.cardList} cols={1.5} rowHeight={"auto"}>
+          {Itemize(cards)}
+        </ImageList>
+      )}
     </div>
   );
 };

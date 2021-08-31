@@ -9,9 +9,16 @@ import FeedPage from "./FeedPage";
 import { useQuery } from "@apollo/client";
 import { SELF } from "./api/queries";
 import { Self } from "./api/__generated__/Self";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import json2mq from "json2mq";
 
 function App() {
   const { loading, error, data } = useQuery<Self>(SELF);
+  const matches = useMediaQuery(
+    json2mq({
+      minWidth: 700,
+    })
+  );
   return (
     <div className="App">
       <Header user={data?.self} />
@@ -24,10 +31,14 @@ function App() {
           render={() => <FeedPage pageTitle="Now Showing" />}
         />
         <Route path="/booking">
-          <div className="booking__ticket">
+          <div
+            className={matches ? "booking__ticket" : "booking__ticket__mobile"}
+          >
             <BookingForm />
           </div>
-          <div className="ticket__term"></div>
+          <div
+            className={matches ? "ticket__term" : "ticket__term__mobile"}
+          ></div>
         </Route>
       </Switch>
       <Footer />

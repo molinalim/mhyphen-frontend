@@ -15,7 +15,27 @@
   display: block;
 }
 
+.header__root {
+  position: relative;
+  object-fit: contain;
+}
+
 .header__header {
   color: white;
   font-size: 12px;
+}
+
+@media only screen and (max-width: 700px) {
+  /* For mobile phones: */
+  .header__root {
+    width: 100%;
+    display: flex;
+  }
+  .header__header {
+    width: 10px;
+    padding-right: 10%;
+  }
+  .header__logo {
+    width: 60px;
+  }
 }
