@@ -17,7 +17,7 @@ import { HeaderProps } from "../Header/Header";
 const useStyles = makeStyles({
   list: {
     width: "100%",
-    height: 250,
+    height: 180,
     background: "black",
     backdropFilter: "blur( 2.5px )",
   },

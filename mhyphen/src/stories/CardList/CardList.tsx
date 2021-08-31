@@ -21,7 +21,6 @@ const Itemize = (cards: JSX.Element[]): JSX.Element[] => {
   const styles = CardListStyles();
   const out: JSX.Element[] = [];
 
-  //TODO: If we have time, set the rows and cols taken up based on the code size / some metric.
   cards.forEach((card) => {
     out.push(
       <ImageListItem className={styles.cardListItem}>{card}</ImageListItem>

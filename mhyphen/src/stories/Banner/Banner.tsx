@@ -1,13 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Banner.css";
-import axios from "./axios";
-import requests from "./Requests";
+import axios from "axios";
 
+//axios stuffs
+const instance = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+});
+
+const API_KEY = "c66d3d36a1ab33af191a31634a1b5a81";
+
+const requests = {
+  fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+  fetchNetflixOriginals: `/discover/movie?api_key=${API_KEY}&with_networks=213`,
+  fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
+  fetchAnimations: `discover/movie?api_key=${API_KEY}&with_genres=16`,
+  fetchSciFi: `discover/movie?api_key=${API_KEY}&with_genres=878`,
+};
+
+//start of banner function
 function Banner() {
   const [movie, setMovie] = React.useState<any>([]);
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchAnimations);
+      const request = await instance.get(requests.fetchAnimations);
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)

@@ -6,6 +6,7 @@ import { ADD_BOOKING } from "../../api/mutations";
 import { AddBooking } from "../../api/__generated__/AddBooking";
 import { createStyles } from "@material-ui/core";
 import { useMutation } from "@apollo/client";
+import CheckCircleTwoToneIcon from "@material-ui/icons/CheckCircleTwoTone";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -23,6 +24,7 @@ import {
   DialogContentText,
 } from "@material-ui/core";
 
+//Styling of the form
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     "& .MuiFormHelperText-root": {
@@ -33,25 +35,26 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: "600px !important",
     padding: "15px",
   },
+  form__movie: {
+    width: "490px",
+  },
   form: {
     marginTop: "23%",
     textAlign: "center",
-    fontFamily: "Montserrat",
-    color: "#fcda86",
+    fontFamily: "Helvetica",
+    color: "#fff",
     padding: "25px",
     width: "500px",
-    background: "rgba( 255, 255, 255, 0.20 )",
+    background: "rgba( 255, 255, 255, 0.40 )",
     boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-    backdropFilter: "blur( 2.5px )",
+    backdropFilter: "blur( 3.5px )",
     borderRadius: "10px",
     border: "1px solid rgba( 255, 255, 255, 0.18 )",
   },
   button: {
     margin: "auto",
     marginTop: "10px",
-    color: "#fcda86",
-    backgroundColor: "black",
-    background: "black",
+    color: "white",
   },
   notLoggedIn: {
     color: "red",
@@ -69,15 +72,15 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
 
   const [addBooking] = useMutation<AddBooking>(ADD_BOOKING);
   const [dialog, setDialog] = React.useState(false);
-
+  //update movieId
   const handleChange = (e: any) => {
     setMovieId(e.target.value);
   };
-
+  //update booked date
   const handleDateChange = (date: any) => {
     setBooked(date);
   };
-
+  //save the booking
   const handleSubmit = async () => {
     try {
       await addBooking({
@@ -98,16 +101,18 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
   return (
     <Container className={classes.form__container}>
       <div className={classes.form}>
-        <Typography variant="h4">FILL IN YOUR TICKET</Typography>
         {submit ? (
           <div>
+            <CheckCircleTwoToneIcon fontSize="large" />
+            <Typography variant="h4">Your ticket is ready!</Typography>
             <Grid>
-              Congratulations! Your booking has been made successfully. Your
-              booking reference is 〔M{String(movieId)}@
+              Your booking reference is 〔M{String(movieId)}@
               {booked.toLocaleString()}〕 .
             </Grid>
           </div>
-        ) : null}
+        ) : (
+          <Typography variant="h4">FILL IN YOUR TICKET</Typography>
+        )}
         {notLogin ? (
           <Grid className={classes.notLoggedIn}>
             Please make sure you are logged in and selected a movie.
@@ -115,7 +120,7 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
         ) : null}
         <Grid container spacing={4}>
           <Grid item xs={12} sm={12}>
-            <FormControl>
+            <FormControl className={classes.form__movie}>
               <InputLabel id="demo-customized-select-label"> Movie </InputLabel>
               <Select
                 labelId="demo-customized-select-label"
@@ -167,27 +172,39 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
             </Grid>
           </MuiPickersUtilsProvider>
         </Grid>
-        <Button
-          className={classes.button}
-          backgroundColor="#372854"
-          label="Book"
-          onClick={handleSubmit}
-          primary
-          size="medium"
-        />
+        {submit ? null : (
+          <Button
+            className={classes.button}
+            backgroundColor="#130430"
+            label="Book"
+            onClick={handleSubmit}
+            primary
+            size="medium"
+          />
+        )}
       </div>
       <ExternalDialog isOpen={dialog} setIsOpen={setDialog} />
     </Container>
   );
 };
 
+//a dialog that shows additional booking information
 interface ExternalDialogProps {
   isOpen: boolean;
   setIsOpen: (newOpen: boolean) => void;
 }
 
+//dialog styling
 const makeDialogStyles = makeStyles(
   createStyles({
+    content: {
+      background: "rgba( 255, 255, 255, 0.20 )",
+      boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+      backdropFilter: "blur( 2.5px )",
+      borderRadius: "10px",
+      border: "1px solid rgba( 255, 255, 255, 0.18 )",
+      padding: "15px",
+    },
     buttonGroup: {
       display: "flex",
       flexDirection: "row",
@@ -208,11 +225,18 @@ const ExternalDialog = ({
   return (
     <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
       <DialogTitle>Your booking has been recorded!</DialogTitle>
-      <DialogContent>
+      <DialogContent className={styles.content}>
         <DialogContentText>
           Please take a screenshot of the completed ticket. Show the ticket to
-          the staff and pay $25 when you arrive.
+          the staff and pay $15 when you arrive.
         </DialogContentText>
+        <Button
+          backgroundColor="#130430"
+          label="Back"
+          onClick={() => setIsOpen(false)}
+          primary
+          size="medium"
+        />
       </DialogContent>
     </Dialog>
   );

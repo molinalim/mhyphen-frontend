@@ -8,7 +8,6 @@ import {
   Hidden,
   IconButton,
   Toolbar,
-  Typography,
 } from "@material-ui/core";
 import { SideBar } from "../Sidebar/Sidebar";
 import MenuIcon from "@material-ui/icons/Menu";
