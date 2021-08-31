@@ -17,6 +17,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { Self_self } from "../../api/__generated__/Self";
 import { LOGIN } from "../../api/mutations";
+import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       display: "flex",
     },
-    login: { marginLeft: "38%" },
+    login: { marginLeft: "35%", alignItems: "center", display: "flex" },
   })
 );
 export interface Login_login_user {
@@ -148,13 +149,15 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
             <h1 className="header__header">Outdoor Cinema</h1>
           </IconButton>
           {user == null ? (
-            <Button
-              className={classes.login}
-              color="inherit"
-              href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
-            >
-              Login
-            </Button>
+            <div className={classes.login}>
+              <AccountCircleTwoToneIcon fontSize="large" />
+              <Button
+                color="inherit"
+                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
+              >
+                Login
+              </Button>
+            </div>
           ) : (
             <div className="header__user">
               <div className={classes.userInformation}>
