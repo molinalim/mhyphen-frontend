@@ -87,11 +87,11 @@ const ExternalDialog = ({
     <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent className={styles.content}>
-        <DialogContentText>
+        <DialogContentText className={styles.info}>
           <StarBorderIcon />
           &nbsp; Rating: {rating}
         </DialogContentText>
-        <DialogContentText>
+        <DialogContentText className={styles.info}>
           <MovieFilterIcon />
           &nbsp; Genre: {genre}
         </DialogContentText>
