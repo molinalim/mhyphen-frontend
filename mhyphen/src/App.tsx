@@ -9,7 +9,6 @@ import FeedPage from "./FeedPage";
 import { useQuery } from "@apollo/client";
 import { SELF } from "./api/queries";
 import { Self } from "./api/__generated__/Self";
-import Payment from "./stories/Payment/Payment";
 
 function App() {
   const { loading, error, data } = useQuery<Self>(SELF);

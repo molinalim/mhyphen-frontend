@@ -41,10 +41,10 @@ const FeedPage = ({ pageTitle }: FeedPageProps): JSX.Element => {
           return (
             <div>
               <MovieCard
-                cardTitle={movie.title}
-                subHeader={movie.plot}
-                cardContent={<Typography>{movie.plot}</Typography>}
-                url={movie.imageURL}
+                title={movie.title}
+                plot={movie.plot}
+                rating={String(movie.rating)}
+                genre={movie.genre}
                 poster={movie.imageURL}
               />
             </div>

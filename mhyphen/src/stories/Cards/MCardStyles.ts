@@ -54,7 +54,16 @@ const makeMCardStyles = makeStyles(
 
 export const makeDialogStyles = makeStyles(
   createStyles({
+    content: {
+      background: "rgba( 255, 255, 255, 0.20 )",
+      boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+      backdropFilter: "blur( 2.5px )",
+      borderRadius: "10px",
+      border: "1px solid rgba( 255, 255, 255, 0.18 )",
+      padding: "15px",
+    },
     buttonGroup: {
+      padding: "20px",
       display: "flex",
       flexDirection: "row",
       justifyContent: "flex-end",
