@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 });
 
 const CLIENT_ID = "a6ac879139cfdf60af2a";
-const REDIRECT_URI = "http://localhost:3000/home";
+const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
 
 export const SideBar: React.FC<HeaderProps> = ({ user }) => {
   const classes = useStyles();
