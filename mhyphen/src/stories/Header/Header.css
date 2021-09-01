@@ -25,7 +25,7 @@
   font-size: 12px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 990px) {
   /* For mobile phones: */
   .header__root {
     width: 100%;

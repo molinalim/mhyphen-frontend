@@ -12,12 +12,12 @@ const instance = axios.create({
 const API_KEY = "c66d3d36a1ab33af191a31634a1b5a81";
 
 const requests = {
-  fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
-  fetchNetflixOriginals: `/discover/movie?api_key=${API_KEY}&with_networks=213`,
-  fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   fetchAnimations: `discover/movie?api_key=${API_KEY}&with_genres=16`,
   fetchSciFi: `discover/movie?api_key=${API_KEY}&with_genres=878`,
-  fetchRaya: `movie/527774-raya-and-the-last-dragon`,
+  fetchNicePosters: `discover/movie?api_key=${API_KEY}&with_genres=14,12,16,878`,
+  fetchRaya: `/movie/527774?api_key=${API_KEY}&language=en-US`,
+  fetchPikachu: `/movie/447404?api_key=${API_KEY}&language=en-US`,
+  fetchLatest: `/movie/latest?api_key=${API_KEY}&language=en-US`,
 };
 
 //start of banner function
@@ -25,7 +25,7 @@ function Banner() {
   const [movie, setMovie] = React.useState<any>([]);
   useEffect(() => {
     async function fetchData() {
-      const request = await instance.get(requests.fetchAnimations);
+      const request = await instance.get(requests.fetchSciFi);
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -35,7 +35,7 @@ function Banner() {
     }
     fetchData();
   }, []);
-  console.log(movie);
+
   function cut(string: string, n: number) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
@@ -61,7 +61,7 @@ function Banner() {
         </a>
         {useMediaQuery(
           json2mq({
-            minWidth: 700,
+            minWidth: 990,
           })
         ) ? (
           <div className="sign">

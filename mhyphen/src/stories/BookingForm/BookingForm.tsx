@@ -26,10 +26,11 @@ import {
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import json2mq from "json2mq";
 
+//media query
 function JavaScriptMedia() {
   const matches = useMediaQuery(
     json2mq({
-      minWidth: 700,
+      minWidth: 990,
     })
   );
 
@@ -92,6 +93,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 export interface BookingFormProps {}
 
+//booking form
 export const BookingForm: React.FC<BookingFormProps> = () => {
   const classes = useStyles();
   const [movieId, setMovieId] = useState<string>("");
@@ -175,6 +177,8 @@ export const BookingForm: React.FC<BookingFormProps> = () => {
                 <MenuItem value={"8"}>
                   Pokémon: Mewtwo Strikes Back—Evolution
                 </MenuItem>
+                <MenuItem value={"9"}>Pokémon Detective Pikachu</MenuItem>
+                <MenuItem value={"10"}>Raya and the Last Dragon</MenuItem>
               </Select>
             </FormControl>
           </Grid>

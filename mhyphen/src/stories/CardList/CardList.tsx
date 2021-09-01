@@ -14,14 +14,14 @@ const CardList = ({ cards, cols }: CardListProps): JSX.Element => {
     <div className={styles.root}>
       {useMediaQuery(
         json2mq({
-          minWidth: 700,
+          minWidth: 990,
         })
       ) ? (
         <ImageList className={styles.cardList} cols={7} rowHeight={"auto"}>
           {Itemize(cards)}
         </ImageList>
       ) : (
-        <ImageList className={styles.cardList} cols={1.5} rowHeight={"auto"}>
+        <ImageList className={styles.cardList} cols={2} rowHeight={"auto"}>
           {Itemize(cards)}
         </ImageList>
       )}
