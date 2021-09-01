@@ -16,7 +16,6 @@ This website is built with:
 ![website display - home 2](https://github.com/molinalim/mhyphen-frontend/blob/main/showcast2.png)
 ![website display - movie information](https://github.com/molinalim/mhyphen-frontend/blob/main/movie_info.png)
 ### https://mhyphen.azurewebsites.net/booking
-![website display - booking 1](https://github.com/molinalim/mhyphen-frontend/blob/main/booking1.png)
-![website display - booking 2](https://github.com/molinalim/mhyphen-frontend/blob/main/booking2.png)
+![website display - booking 1](https://github.com/molinalim/mhyphen-frontend/blob/main/booking.png)
 
 
