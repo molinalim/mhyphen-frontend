@@ -14,8 +14,8 @@ LoggedIn.args = {
   user: {
     __typename: "User",
     id: "1",
-    name: "John Doe",
-    gitHub: "johndoe",
+    name: "Pikachuuu",
+    gitHub: "pikapika",
     imageURI: "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
   },
 };
