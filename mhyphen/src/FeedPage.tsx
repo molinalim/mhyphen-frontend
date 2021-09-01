@@ -12,6 +12,9 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import json2mq from "json2mq";
+import TextField from "@material-ui/core/TextField";
+import { Grid } from "@material-ui/core";
+import SearchTwoToneIcon from "@material-ui/icons/SearchTwoTone";
 
 const API_KEY = "c66d3d36a1ab33af191a31634a1b5a81";
 
@@ -37,16 +40,32 @@ const FeedPageStyles = makeStyles(
     form__movie: {
       background: "white",
       color: "white",
-      width: "200px",
-      marginBottom: "40px",
-      marginLeft: "30px",
+      width: "90%",
+      display: "flex",
+      marginBottom: "150px",
+      marginLeft: "5%",
+      marginRight: "5%",
       boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
       backdropFilter: "blur( 3.5px )",
       borderRadius: "5px",
       paddingTop: "0px",
       padding: "10px",
     },
-    form__movie__mobile: {},
+    form__movie__mobile: {
+      background: "white",
+      color: "white",
+      width: "90%",
+      display: "flex",
+      marginBottom: "150px",
+      marginLeft: "2%",
+      marginRight: "2%",
+      boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+      backdropFilter: "blur( 3.5px )",
+      borderRadius: "5px",
+      paddingTop: "0px",
+      paddingBottom: "20px",
+      padding: "10px",
+    },
     browse: {
       marginTop: "100px",
     },
@@ -68,6 +87,13 @@ const FeedPageStyles = makeStyles(
       color: "#fff",
       textTransform: "uppercase",
       textShadow: "0 0 30px #ffffff, 0 0 10px #ffffff",
+    },
+    browsing__filter: { marginTop: "10px", marginLeft: "3%" },
+    browsing__filterInput: { width: "70%" },
+    browsing__searchField: { marginTop: "10px", width: "85%" },
+    browsing__searchIcon: {
+      marginTop: "20px",
+      paddingLeft: "5%",
     },
   })
 );
@@ -107,11 +133,16 @@ const FeedPage = ({}: FeedPageProps): JSX.Element => {
   });
   const [movies, setMovies] = React.useState<JSX.Element[]>([]);
   const [genre, setGenre] = React.useState<string>("16");
+  const [keyword, setKeyword] = React.useState<string>("");
   //update genre
   const handleChange = (e: any) => {
     setGenre(e.target.value);
   };
+  const handleKeywordSearch = (e: any) => {
+    setKeyword(e.target.value);
+  };
   const base_url = "https://image.tmdb.org/t/p/original/";
+
   useEffect(() => {
     async function fetchData() {
       const request = await instance.get(
@@ -138,6 +169,34 @@ const FeedPage = ({}: FeedPageProps): JSX.Element => {
     fetchData();
   }, [`discover/movie?api_key=${API_KEY}&with_genres=${Number(genre)}`]);
 
+  useEffect(() => {
+    async function fetchMovie() {
+      const request = await instance.get(
+        `search/movie?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`
+      );
+
+      setMovies(
+        request.data.results.map((movie: any) => {
+          return (
+            <div>
+              <MovieCard
+                title={movie?.title}
+                plot={movie?.overview}
+                rating={String(movie?.vote_average)}
+                genre={"undefined"}
+                poster={`${base_url}${movie.poster_path}`}
+                release_date={movie.release_date}
+              />
+            </div>
+          );
+        })
+      );
+    }
+    fetchMovie();
+  }, [
+    `search/movie?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`,
+  ]);
+
   return (
     <div className={styles.page}>
       <Banner />
@@ -153,23 +212,48 @@ const FeedPage = ({}: FeedPageProps): JSX.Element => {
           JavaScriptMedia() ? styles.form__movie : styles.form__movie__mobile
         }
       >
-        <InputLabel id="demo-customized-select-label">
-          &nbsp;&nbsp; Browse By Genre
-        </InputLabel>
-        <Select
-          labelId="demo-customized-select-label"
-          id="demo-customized-select"
-          value={genre}
-          onChange={handleChange}
-        >
-          <MenuItem value={"27"}>Horror</MenuItem>
-          <MenuItem value={"878"}>Sci-Fi</MenuItem>
-          <MenuItem value={"16"}>Animation</MenuItem>
-          <MenuItem value={"28"}>Action</MenuItem>
-          <MenuItem value={"14"}>Fantasy</MenuItem>
-          <MenuItem value={"35"}>Comedy</MenuItem>
-          <MenuItem value={"10749"}>Romance</MenuItem>
-        </Select>
+        <Grid container spacing={4}>
+          <Grid className={styles.browsing__filter} item xs={12} sm={3}>
+            <InputLabel
+              className={styles.browsing__filter}
+              id="demo-customized-select-label"
+            >
+              &nbsp;&nbsp; Browse By Genre
+            </InputLabel>
+            <Select
+              labelId="demo-customized-select-label"
+              id="demo-customized-select"
+              value={genre}
+              onChange={handleChange}
+              className={styles.browsing__filterInput}
+            >
+              <MenuItem value={"27"}>Horror</MenuItem>
+              <MenuItem value={"878"}>Sci-Fi</MenuItem>
+              <MenuItem value={"16"}>Animation</MenuItem>
+              <MenuItem value={"28"}>Action</MenuItem>
+              <MenuItem value={"14"}>Fantasy</MenuItem>
+              <MenuItem value={"35"}>Comedy</MenuItem>
+              <MenuItem value={"10749"}>Romance</MenuItem>
+            </Select>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              id="outlined-search"
+              label="Search for any movie with any keyword... e.g. pokemon"
+              type="search"
+              value={keyword}
+              variant="outlined"
+              onChange={handleKeywordSearch}
+              className={styles.browsing__searchField}
+            />
+            <SearchTwoToneIcon
+              fill="black"
+              color="primary"
+              fontSize="large"
+              className={styles.browsing__searchIcon}
+            />
+          </Grid>
+        </Grid>
       </FormControl>
       <div className={styles.browse}>
         {cards.length === 0 ? (
