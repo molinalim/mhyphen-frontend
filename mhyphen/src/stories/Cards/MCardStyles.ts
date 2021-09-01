@@ -62,6 +62,7 @@ export const makeDialogStyles = makeStyles(
       border: "1px solid rgba( 255, 255, 255, 0.18 )",
       padding: "15px",
     },
+    media: {},
     info: {
       alignItems: "center",
       display: "flex",

@@ -14,6 +14,7 @@ import makeMCardStyles, { makeDialogStyles } from "./MCardStyles";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import MovieFilterIcon from "@material-ui/icons/MovieFilter";
 import Divider from "@material-ui/core/Divider";
+import DateRangeTwoToneIcon from "@material-ui/icons/DateRangeTwoTone";
 
 export interface MovieCardProps {
   title: string;
@@ -21,6 +22,7 @@ export interface MovieCardProps {
   rating: string;
   genre: string;
   poster: string;
+  release_date: string;
 }
 
 interface ExternalDialogProps {
@@ -30,6 +32,7 @@ interface ExternalDialogProps {
   plot: string;
   rating: string;
   genre: string;
+  release_date: string;
 }
 
 const MovieCard = ({
@@ -38,6 +41,7 @@ const MovieCard = ({
   rating,
   genre,
   poster,
+  release_date,
 }: MovieCardProps): JSX.Element => {
   const styles = makeMCardStyles();
   const [dialog, setDialog] = React.useState(false);
@@ -68,6 +72,7 @@ const MovieCard = ({
         plot={plot}
         rating={rating}
         genre={genre}
+        release_date={release_date}
       />
     </div>
   );
@@ -80,6 +85,7 @@ const ExternalDialog = ({
   plot,
   rating,
   genre,
+  release_date,
 }: ExternalDialogProps): JSX.Element | null => {
   const styles = makeDialogStyles();
 
@@ -91,9 +97,18 @@ const ExternalDialog = ({
           <StarBorderIcon />
           &nbsp; Rating: {rating}
         </DialogContentText>
-        <DialogContentText className={styles.info}>
-          <MovieFilterIcon />
-          &nbsp; Genre: {genre}
+        <DialogContentText>
+          {genre == "undefined" ? (
+            <div className={styles.info}>
+              <DateRangeTwoToneIcon />
+              &nbsp; Release Date: {release_date}
+            </div>
+          ) : (
+            <div className={styles.info}>
+              <MovieFilterIcon />
+              &nbsp; Genre: {genre}
+            </div>
+          )}
         </DialogContentText>
         <Divider />
         <br />
