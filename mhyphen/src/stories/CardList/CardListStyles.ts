@@ -21,7 +21,7 @@ const CardListStyles = makeStyles(
     cardListItem: {
       marginRight: "10px",
       marginLeft: "10px",
-      marginBottom: "100px",
+      marginBottom: "50px",
     },
   })
 );

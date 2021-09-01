@@ -11,51 +11,42 @@ const instance = axios.create({
 
 const API_KEY = "c66d3d36a1ab33af191a31634a1b5a81";
 
-const requests = {
-  fetchAnimations: `discover/movie?api_key=${API_KEY}&with_genres=16`,
-  fetchSciFi: `discover/movie?api_key=${API_KEY}&with_genres=878`,
-  fetchNicePosters: `discover/movie?api_key=${API_KEY}&with_genres=14,12,16,878`,
-  fetchRaya: `/movie/527774?api_key=${API_KEY}&language=en-US`,
-  fetchPikachu: `/movie/447404?api_key=${API_KEY}&language=en-US`,
-  fetchLatest: `/movie/latest?api_key=${API_KEY}&language=en-US`,
-};
-
 //start of banner function
 function Banner() {
-  const [movie, setMovie] = React.useState<any>([]);
+  const backdrop_path = [
+    "https://www.themoviedb.org/t/p/original/nDP33LmQwNsnPv29GQazz59HjJI.jpg",
+    "https://www.themoviedb.org/t/p/original/e4qwJdxWkNU49y6YyYyN60Gimdi.jpg",
+    "https://www.themoviedb.org/t/p/original/yXybBEC45p84D0Ky7GmQQYrclVr.jpg",
+    "https://www.themoviedb.org/t/p/original/i62oJ7p89sPvhf9gNkuDQVSlj2G.jpg",
+    "https://www.themoviedb.org/t/p/original/xIbSSyPYgCfyljRWGsmAJqHLYnY.jpg",
+    "https://www.themoviedb.org/t/p/original/u4XvyFvMtFZOWUcA0GmlWP6rMxC.jpg",
+  ];
+  const [movie, setMovie] = React.useState<any>();
+  const bg =
+    backdrop_path[Math.floor(Math.random() * backdrop_path.length - 1)];
   useEffect(() => {
     async function fetchData() {
-      const request = await instance.get(requests.fetchSciFi);
-      setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
+      const request = await instance.get(
+        `/movie/447404?api_key=${API_KEY}&language=en-US`
       );
+      setMovie(request.data);
       return request;
     }
     fetchData();
   }, []);
-
-  function cut(string: string, n: number) {
-    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
-  }
 
   return (
     <header
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
+        backgroundImage: `url('${bg}')`,
         backgroundPosition: "center center",
       }}
     >
       <div className="banner__contents">
-        <h1 className="banner__title">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
-        <h1 className="banner__description">
-          {cut(String(movie?.overview), 160)}
-        </h1>
+        <h1 className="banner__title">{movie?.title}</h1>
+        <h1 className="banner__description">{String(movie?.overview)}</h1>
         <a className="banner__button" href="/booking">
           GET YOUR TICKET NOW!
         </a>

@@ -17,11 +17,11 @@ const CardList = ({ cards, cols }: CardListProps): JSX.Element => {
           minWidth: 990,
         })
       ) ? (
-        <ImageList className={styles.cardList} cols={7} rowHeight={"auto"}>
+        <ImageList className={styles.cardList} cols={cols} rowHeight={"auto"}>
           {Itemize(cards)}
         </ImageList>
       ) : (
-        <ImageList className={styles.cardList} cols={2} rowHeight={"auto"}>
+        <ImageList className={styles.cardList} cols={cols} rowHeight={"auto"}>
           {Itemize(cards)}
         </ImageList>
       )}
