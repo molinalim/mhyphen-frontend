@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 import "./App.css";
-
 import { Header } from "./stories/Header/Header";
 import { Footer } from "./stories/Footer/Footer";
 import { BookingForm } from "./stories/BookingForm/BookingForm";
@@ -26,10 +25,7 @@ function App() {
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
-        <Route
-          path="/home"
-          render={() => <FeedPage pageTitle="Now Showing" />}
-        />
+        <Route path="/home" render={() => <FeedPage />} />
         <Route path="/booking">
           <div
             className={matches ? "booking__ticket" : "booking__ticket__mobile"}

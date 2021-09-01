@@ -5,7 +5,7 @@ import { BookingForm, BookingFormProps } from "./BookingForm";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 export default {
-  title: "UI Components/Submit Form",
+  title: "UI Components/Booking Form",
   component: BookingForm,
 } as Meta;
 

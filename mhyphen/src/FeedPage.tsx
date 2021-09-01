@@ -72,11 +72,9 @@ const FeedPageStyles = makeStyles(
   })
 );
 
-export interface FeedPageProps {
-  pageTitle: string;
-}
+export interface FeedPageProps {}
 
-const FeedPage = ({ pageTitle }: FeedPageProps): JSX.Element => {
+const FeedPage = ({}: FeedPageProps): JSX.Element => {
   const [cards, setCards] = React.useState<JSX.Element[]>([]);
   const { loading, error, data } = useQuery<Movies>(MOVIES, {
     fetchPolicy: "no-cache",
