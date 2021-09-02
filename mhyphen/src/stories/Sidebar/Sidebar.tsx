@@ -14,6 +14,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import { HeaderProps } from "../Header/Header";
 
+//styling
 const useStyles = makeStyles({
   list: {
     width: "100%",
@@ -30,9 +31,11 @@ const useStyles = makeStyles({
   },
 });
 
+//oauth
 const CLIENT_ID = "a6ac879139cfdf60af2a";
 const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
 
+//sidebar 
 export const SideBar: React.FC<HeaderProps> = ({ user }) => {
   const classes = useStyles();
   const handleLogout = () => {
