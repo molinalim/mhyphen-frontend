@@ -18,6 +18,19 @@ import { useMutation } from "@apollo/client";
 import { Self_self } from "../../api/__generated__/Self";
 import { LOGIN } from "../../api/mutations";
 import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
+import json2mq from "json2mq";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
+//media query
+function JavaScriptMedia() {
+  const matches = useMediaQuery(
+    json2mq({
+      minWidth: 1200,
+    })
+  );
+
+  return matches;
+}
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -35,6 +48,9 @@ const useStyles = makeStyles((theme: Theme) =>
     logo: {
       marginLeft: "40%",
     },
+    logo__mobile: {
+      marginLeft: "0",
+    },
     appBar: {
       width: "100%",
       position: "fixed",
@@ -46,6 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
       transitionTimingFunction: "ease-in",
       transition: "all 0.5s",
       alignItems: "centre",
+      display: "flex",
       boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
       backdropFilter: "blur( 2.5px )",
       background: "rgba( 255, 255, 255, 0.20 )",
@@ -59,15 +76,22 @@ const useStyles = makeStyles((theme: Theme) =>
     inputRoot: {
       color: "inherit",
     },
-    userInformation: {
-      display: "flex",
-    },
     flexEnd: {
       justifyContent: "flex-end",
       alignItems: "center",
       display: "flex",
     },
-    login: { marginLeft: "35%", alignItems: "center", display: "flex" },
+    login: {
+      marginLeft: "33%",
+      display: "flex",
+      justifyContent: "flex-end",
+    },
+    login__mobile: {
+      marginLeft: "35%",
+      marginRight: "5%",
+      display: "flex",
+      alignItems: "center",
+    },
   })
 );
 export interface Login_login_user {
@@ -144,12 +168,19 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
               <SideBar user={user} />
             </Drawer>
           </IconButton>
-          <IconButton className={classes.logo} href="/home">
+          <IconButton
+            className={JavaScriptMedia() ? classes.logo : classes.logo__mobile}
+            href="/home"
+          >
             <img className="header__logo" src={logo} id="logo" alt="M- Logo" />
             <h1 className="header__header">Outdoor Cinema</h1>
           </IconButton>
           {user == null ? (
-            <div className={classes.login}>
+            <div
+              className={
+                JavaScriptMedia() ? classes.login : classes.login__mobile
+              }
+            >
               <AccountCircleTwoToneIcon fontSize="large" />
               <Button
                 color="inherit"
@@ -159,15 +190,15 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
               </Button>
             </div>
           ) : (
-            <div className="header__user">
-              <div className={classes.userInformation}>
-                <Hidden smDown>
-                  <Avatar alt="user-avatar" src={user.imageURI} />
-                  <Button color="inherit" href="/booking">
-                    {user.name}
-                  </Button>
-                </Hidden>
-              </div>
+            <div
+              className={
+                JavaScriptMedia() ? classes.login : classes.login__mobile
+              }
+            >
+              <Avatar alt="user-avatar" src={user.imageURI} />
+              <Button color="inherit" href="/booking">
+                {user.name}
+              </Button>
             </div>
           )}
         </Toolbar>

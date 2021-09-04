@@ -32,10 +32,10 @@ const useStyles = makeStyles({
 });
 
 //oauth
-const CLIENT_ID = "a6ac879139cfdf60af2a";
+const CLIENT_ID = "a12b7d82fa895598caba";
 const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
 
-//sidebar 
+//sidebar
 export const SideBar: React.FC<HeaderProps> = ({ user }) => {
   const classes = useStyles();
   const handleLogout = () => {
