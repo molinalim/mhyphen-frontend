@@ -5,7 +5,7 @@ const TicketListStyles = makeStyles(
     root: {
       display: "flex",
       flexWrap: "wrap",
-      marginLeft: "20px",
+      marginLeft: "0px",
       paddingTop: "0",
       zIndex: 10,
       position: "relative",
@@ -16,14 +16,14 @@ const TicketListStyles = makeStyles(
     },
     ticketList: {
       width: "100%",
-      gap: "0%",
+      gap: 50,
       height: "100%",
       transform: "translateZ(0)",
       flexWrap: "nowrap",
     },
     ticketListItem: {
-      marginRight: "10px",
-      marginLeft: "10px",
+      marginRight: "0px",
+      marginLeft: "0px",
       marginBottom: "50px",
       minWidth: "280px",
     },

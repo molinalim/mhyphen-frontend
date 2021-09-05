@@ -13,6 +13,7 @@ export const BasicCard = Template.bind(this);
 BasicCard.args = {
   title: "MHYPHEN the Gr8",
   plot: "Once upon a time...",
+  release_date: "today",
   genre: "gr8",
   rating: "1000",
   poster:

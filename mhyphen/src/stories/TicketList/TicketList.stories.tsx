@@ -1,10 +1,10 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 import TicketList, { TicketListProps } from "./TicketList";
-import { Card, CardContent, CardHeader, Divider } from "@material-ui/core";
+import Ticket, { TicketProps } from "../Tickets/Ticket";
 
 export default {
-  title: "UI Components/Feed/TicketList",
+  title: "UI Components/Tickets/TicketList",
   component: TicketList,
 } as Meta;
 
@@ -13,16 +13,14 @@ const Template: Story<TicketListProps> = (args) => <TicketList {...args} />;
 const makeCard = (): JSX.Element => {
   return (
     <div>
-      <Card variant="outlined">
-        <CardHeader title={"Some Header"}></CardHeader>
-        <Divider />
-        <CardContent>Lorem Ipsum Dolor Est Et Cetera Et Cetera</CardContent>
-      </Card>
-      <Card variant="outlined">
-        <CardHeader title={"Some Header1"}></CardHeader>
-        <Divider />
-        <CardContent>Lorem Ipsum Dolor Est Et Cetera Et Cetera</CardContent>
-      </Card>
+      <Ticket
+        id={1}
+        booked="Just now"
+        created="Just now"
+        movieTitle="Amazing World Of Gumble"
+        price="15.00"
+        qr="https://assets.hongkiat.com/uploads/qr-code-artworks/ipa.jpg"
+      />
     </div>
   );
 };

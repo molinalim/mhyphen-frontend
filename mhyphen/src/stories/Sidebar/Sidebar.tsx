@@ -14,6 +14,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import { HeaderProps } from "../Header/Header";
 import MenuBookTwoToneIcon from "@material-ui/icons/MenuBookTwoTone";
+import { CLIENT } from "../Header/Header";
 
 //styling
 const useStyles = makeStyles({
@@ -35,13 +36,14 @@ const useStyles = makeStyles({
 //oauth
 const CLIENT_ID = "a12b7d82fa895598caba";
 const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
-
 //sidebar
 export const SideBar: React.FC<HeaderProps> = ({ user }) => {
   const classes = useStyles();
   const handleLogout = () => {
     localStorage.removeItem("token");
   };
+  CLIENT.id = Number(user?.id);
+  CLIENT.name = String(user?.name);
   return (
     <div className={classes.list}>
       <List>

@@ -4,11 +4,15 @@
 
 .booking__ticket__mobile {
   background-image: url("./ticket/mobilebg4.jpeg");
+  background-color: black;
   background-size: 100%;
-  height: 700px;
+  height: 100%;
   width: 100%;
   padding-top: 30px;
   padding-bottom: 0px;
+  object-fit: contain;
+  background-attachment: fixed;
+  height: 690px;
 }
 
 .booking__ticket {

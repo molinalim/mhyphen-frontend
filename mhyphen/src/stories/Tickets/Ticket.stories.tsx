@@ -3,7 +3,7 @@ import { Story, Meta } from "@storybook/react";
 import Ticket, { TicketProps } from "./Ticket";
 
 export default {
-  title: "UI Components/Feed/MovieCard",
+  title: "UI Components/Tickets/Ticket",
   component: Ticket,
 } as Meta;
 
@@ -15,6 +15,6 @@ BasicCard.args = {
   booked: "Just now",
   created: "Just now",
   movieTitle: "Amazing World Of Gumble",
-  price: "$15.00",
-  qr: "https://i.pinimg.com/474x/4c/5a/4d/4c5a4dddbe33d4b3974f87ef90489a90.jpg",
+  price: "15.00",
+  qr: "https://assets.hongkiat.com/uploads/qr-code-artworks/ipa.jpg",
 };

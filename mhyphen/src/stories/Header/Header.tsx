@@ -5,9 +5,9 @@ import {
   AppBar,
   Avatar,
   Drawer,
-  Hidden,
   IconButton,
   Toolbar,
+  Divider,
 } from "@material-ui/core";
 import { SideBar } from "../Sidebar/Sidebar";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -82,15 +82,17 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
     },
     login: {
-      marginLeft: "33%",
+      marginLeft: "23%",
       display: "flex",
       justifyContent: "flex-end",
     },
     login__mobile: {
-      marginLeft: "35%",
-      marginRight: "5%",
+      marginLeft: "10%",
       display: "flex",
       alignItems: "center",
+    },
+    divider: {
+      margin: "10px",
     },
   })
 );
@@ -116,16 +118,16 @@ export interface LoginVariables {
   code: string;
 }
 
-const CLIENT = { client_id: "a12b7d82fa895598caba", id: "", name: "" };
+export const CLIENT = { id: 2, name: "" };
 const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
-
-export default CLIENT;
+const CLIENT_ID = "a12b7d82fa895598caba";
+export default CLIENT_ID;
 
 export const Header: React.FC<HeaderProps> = ({ user }) => {
   const history = useHistory();
   const classes = useStyles();
   const [sideBar, setSideBar] = useState(false);
-  CLIENT.id = String(user?.id);
+  CLIENT.id = Number(user?.id);
   CLIENT.name = String(user?.name);
 
   const query = useQuery();
@@ -186,7 +188,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
               <AccountCircleTwoToneIcon fontSize="large" />
               <Button
                 color="inherit"
-                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT.client_id}&scope=user&redirect_uri=${REDIRECT_URI}`}
+                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
               >
                 Login
               </Button>
@@ -197,6 +199,14 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
                 JavaScriptMedia() ? classes.login : classes.login__mobile
               }
             >
+              <Button color="inherit" href="/tickets">
+                My Tickets
+              </Button>
+              <Divider
+                orientation="vertical"
+                flexItem
+                className={classes.divider}
+              />
               <Avatar alt="user-avatar" src={user.imageURI} />
               <Button color="inherit" href="/booking">
                 {user.name}

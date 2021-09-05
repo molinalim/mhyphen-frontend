@@ -1,18 +1,17 @@
-import { makeStyles, createStyles, CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import React from "react";
-import { Banner, TicketList, Ticket } from "./stories";
+import { TicketList, Ticket } from "./stories";
 import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { BOOKINGS } from "./api/queries";
 import ticketbg from "./ticket/ticketbgqr.svg";
+import Button from "@material-ui/core/Button";
 import "./TicketPage.css";
 import {
   Bookings,
   Bookings_bookingsByUserId,
 } from "./api/__generated__/Bookings";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import json2mq from "json2mq";
-import CLIENT from "./stories/Header/Header";
+import { CLIENT } from "./stories/Header/Header";
 //import { MOVIE } from "./api/queries";
 //import { Movie, Movie_movie } from "./api/__generated__/Movie";
 //FAILED DUE TO INVALID HOOK CALL (I am still trying to find the solution to fix this.)
@@ -53,34 +52,12 @@ function GetMovie(id: number) {
     return "Raya and the Last Dragon";
   }
 }
-
-//media query
-function JavaScriptMedia() {
-  const matches = useMediaQuery(
-    json2mq({
-      minWidth: 990,
-    })
-  );
-
-  return matches;
-}
-
-const TicketPageStyles = makeStyles(
-  createStyles({
-    root: {
-      margin: "5%",
-      color: "#00FFFF",
-    },
-  })
-);
-
 export const TicketPage = () => {
   const [tickets, setTickets] = React.useState<JSX.Element[]>([]);
   const { loading, error, data } = useQuery<Bookings>(BOOKINGS, {
     variables: { userId: Number(CLIENT.id) },
   });
 
-  const styles = TicketPageStyles();
   useEffect(() => {
     if (loading) console.log("loading...");
     if (!error && !loading) {
@@ -105,7 +82,9 @@ export const TicketPage = () => {
 
   return (
     <div className="typewriter">
-      <h1>Hello, {CLIENT?.name}. Please find your ticket(s) below...</h1>
+      <h1>
+        Hello, {CLIENT?.name === "undefined" ? "please wait..." : CLIENT?.name}.
+      </h1>
       {tickets.length === 0 ? (
         <CircularProgress />
       ) : (
