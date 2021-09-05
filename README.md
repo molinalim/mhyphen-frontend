@@ -24,15 +24,17 @@ This website is built with:
 
 # UI on computer
 
-### [/home](https://mhyphen.azurewebsites.net/home)
+### Just browsing? -> [/home](https://mhyphen.azurewebsites.net/home)
 
 ![website display - home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/showcast.png)
 ![website display - home 2](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/showcast2.png)
 ![website display - movie information](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/movie_info.png)
 ![website display - browse](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/search.png)
+
+### View your tickets -> [/tickets](https://mhyphen.azurewebsites.net/tickets)
 ![website display - tickets](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/ticket.png)
 
-### [/booking] [https://mhyphen.azurewebsites.net/booking]
+### Make a booking -> [/booking](https://mhyphen.azurewebsites.net/booking)
 
 ![website display - booking 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/booking.png)
 
