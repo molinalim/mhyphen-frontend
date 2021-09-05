@@ -5,7 +5,7 @@
 This website is built for: [Microsoft Student Accelerator 2021-Phase-2] https://nzmsa.netlify.app/
 
 This website is built with:
-(Basic requirements)
+
 - React + Typescript
 - UI Library/Styled Components (Material-UI)
 - GraphQL ([Backend](https://mhyphen-backend.azurewebsites.net/graphql/) [GitHub Repo](https://github.com/molinalim/mhyphen-backend))
@@ -13,8 +13,7 @@ This website is built with:
 - Responsive UI (Media Query)
 - Azure, Github actions for Deployment
 - Github for source control
-(Advanced requirements)
-- OAuth Authentication (The user needs to login with their GitHub account before they can make a booking and/or view their tickets)
+-- OAuth Authentication (The user needs to login with their GitHub account before they can make a booking and/or view their tickets)
 - React Router (/home, /booking, and /tickets) to handle navigation among the views of various components
 - Custom logo (M-), theme (Glassmorphism) 
 - Storybook 
