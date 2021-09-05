@@ -267,8 +267,7 @@ const ExternalDialog = ({
       <DialogTitle>Your booking has been recorded!</DialogTitle>
       <DialogContent className={styles.content}>
         <DialogContentText>
-          Please take a screenshot of the completed ticket or keep your booking
-          reference. You may pay $15 when you arrive at the cinema.
+          You have successfully made a booking! You may pay $15 when you arrive at the cinema. You can find your ticket by clicking on "My Tickets". 
         </DialogContentText>
         <Button
           backgroundColor="#130430"
