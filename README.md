@@ -13,7 +13,7 @@ This website is built with:
 - Responsive UI (Media Query)
 - Azure, Github actions for Deployment
 - Github for source control
--- OAuth Authentication (The user needs to login with their GitHub account before they can make a booking and/or view their tickets)
+- OAuth Authentication (The user needs to login with their GitHub account before they can make a booking and/or view their tickets)
 - React Router (/home, /booking, and /tickets) to handle navigation among the views of various components
 - Custom logo (M-), theme (Glassmorphism) 
 - Storybook 
