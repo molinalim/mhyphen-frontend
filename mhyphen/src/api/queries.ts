@@ -1,6 +1,15 @@
 import { gql } from "@apollo/client";
 import * as fragments from "./fragments";
 
+export const BOOKINGS = gql`
+  query Bookings($userId: Int!) {
+    bookingsByUserId(userId: $userId) {
+      ...bookingFields
+    }
+  }
+  ${fragments.BOOKING}
+`;
+
 export const MOVIES = gql`
   query Movies($first: Int, $after: String, $last: Int, $before: String) {
     movies(first: $first, after: $after, last: $last, before: $before) {

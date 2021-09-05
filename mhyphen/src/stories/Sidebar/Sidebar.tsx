@@ -13,12 +13,13 @@ import ConfirmationNumberTwoTone from "@material-ui/icons/ConfirmationNumber";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import { HeaderProps } from "../Header/Header";
+import MenuBookTwoToneIcon from "@material-ui/icons/MenuBookTwoTone";
 
 //styling
 const useStyles = makeStyles({
   list: {
     width: "100%",
-    height: 180,
+    height: 220,
     background: "black",
     backdropFilter: "blur( 2.5px )",
   },
@@ -52,20 +53,36 @@ export const SideBar: React.FC<HeaderProps> = ({ user }) => {
         </ListItem>
         <ListItem button href="/booking" component={Link}>
           <ListItemIcon>
-            <ConfirmationNumberTwoTone style={{ fill: "white" }} />
+            <MenuBookTwoToneIcon style={{ fill: "white" }} />
           </ListItemIcon>
           <ListItemText className={classes.listText} primary="Book" />
         </ListItem>
-      </List>
-      <Divider />
-      <List>
+
         {user ? (
-          <ListItem button href="/home" component={Link} onClick={handleLogout}>
-            <ListItemIcon>
-              <ExitToAppIcon style={{ fill: "white" }} />
-            </ListItemIcon>
-            <ListItemText className={classes.listText} primary="Logout" />
-          </ListItem>
+          <div>
+            <ListItem
+              button
+              href="/tickets"
+              component={Link}
+              onClick={handleLogout}
+            >
+              <ListItemIcon>
+                <ConfirmationNumberTwoTone style={{ fill: "white" }} />
+              </ListItemIcon>
+              <ListItemText className={classes.listText} primary="My Tickets" />
+            </ListItem>
+            <ListItem
+              button
+              href="/home"
+              component={Link}
+              onClick={handleLogout}
+            >
+              <ListItemIcon>
+                <ExitToAppIcon style={{ fill: "white" }} />
+              </ListItemIcon>
+              <ListItemText className={classes.listText} primary="Logout" />
+            </ListItem>
+          </div>
         ) : (
           <ListItem
             button

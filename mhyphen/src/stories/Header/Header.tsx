@@ -116,15 +116,17 @@ export interface LoginVariables {
   code: string;
 }
 
-const CLIENT_ID = "a12b7d82fa895598caba";
+const CLIENT = { client_id: "a12b7d82fa895598caba", id: "", name: "" };
 const REDIRECT_URI = "https://mhyphen.azurewebsites.net/home";
 
-export default CLIENT_ID;
+export default CLIENT;
 
 export const Header: React.FC<HeaderProps> = ({ user }) => {
   const history = useHistory();
   const classes = useStyles();
   const [sideBar, setSideBar] = useState(false);
+  CLIENT.id = String(user?.id);
+  CLIENT.name = String(user?.name);
 
   const query = useQuery();
 
@@ -184,7 +186,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
               <AccountCircleTwoToneIcon fontSize="large" />
               <Button
                 color="inherit"
-                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}
+                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT.client_id}&scope=user&redirect_uri=${REDIRECT_URI}`}
               >
                 Login
               </Button>

@@ -10,6 +10,7 @@ import { SELF } from "./api/queries";
 import { Self } from "./api/__generated__/Self";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import json2mq from "json2mq";
+import { TicketPage } from "./TicketPage";
 
 function App() {
   const { loading, error, data } = useQuery<Self>(SELF);
@@ -31,6 +32,11 @@ function App() {
             className={matches ? "booking__ticket" : "booking__ticket__mobile"}
           >
             <BookingForm />
+          </div>
+        </Route>
+        <Route path="/tickets">
+          <div className={matches ? "ticket" : "ticket__mobile"}>
+            <TicketPage />
           </div>
         </Route>
       </Switch>

@@ -19,6 +19,28 @@
   background-size: 100%;
 }
 
+.ticket {
+  background-image: url("https://www.themoviedb.org/t/p/original/nDP33LmQwNsnPv29GQazz59HjJI.jpg");
+  background-repeat: no-repeat;
+  background-position: fixed 110%;
+  height: 1000px;
+  object-fit: contain;
+  background-attachment: fixed;
+  padding-top: 30px;
+  background-size: 100%;
+}
+
+.ticket__mobile {
+  background-image: url("https://www.themoviedb.org/t/p/original/2wsIOeYeyCqCsQKSuhKpZsWvd50.jpg");
+  background-size: 100%;
+  object-fit: contain;
+  background-attachment: fixed;
+  height: 690px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 0px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
