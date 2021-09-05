@@ -1,20 +1,25 @@
 # mhyphen- outdoor cinema ticket booking website: [M- hosted on Azure](https://mhyphen.azurewebsites.net/)
 
-<img src="https://github.com/molinalim/mhyphen-frontend/blob/main/mhyphen/src/assets/logos/M-.png" alt="logo" width="100"/>
+<img src="https://github.com/molinalim/mhyphen-frontend/blob/main/mhyphen/src/assets/logos/M-.png" alt="logo" width="300"/>
 
 This website is built for: [Microsoft Student Accelerator 2021-Phase-2] https://nzmsa.netlify.app/
 
 This website is built with:
-
+(Basic requirements)
 - React + Typescript
-- Material-UI
+- UI Library/Styled Components (Material-UI)
 - GraphQL ([Backend](https://mhyphen-backend.azurewebsites.net/graphql/) [GitHub Repo](https://github.com/molinalim/mhyphen-backend))
-- Apollo Client
-- Azure, Github source control, Github actions
+- Apollo Client (React Hook and Context for frontend state management)
+- Responsive UI (Media Query)
+- Azure, Github actions for Deployment
+- Github for source control
+(Advanced requirements)
 - OAuth Authentication (The user needs to login with their GitHub account before they can make a booking and/or view their tickets)
-- React Router
-- Custom logo, theme (M-)
-- Storybook
+- React Router (/home, /booking, and /tickets) to handle navigation among the views of various components
+- Custom logo (M-), theme (Glassmorphism) 
+- Storybook 
+- Integrated a call to public API (themoviedb.org) for Movies Browsing and Filtering by Genre 
+
 
 # UI on computer
 
@@ -32,4 +37,4 @@ This website is built with:
 
 # UI on Mobile
 
-![website display on phone- home 1](https://github.com/molinalim/mhyphen-frontend/blob/display/webdisplay/mobile.png)
+![website display on phone- home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/mobile.png)
