@@ -1,8 +1,10 @@
-# mhyphen- outdoor cinema ticket booking website: [M- hosted on Azure](https://mhyphen.azurewebsites.net/)
+# mhyphen- outdoor cinema ticket booking website: [M-](https://mhyphen.azurewebsites.net/)
 
 <img src="https://github.com/molinalim/mhyphen-frontend/blob/main/mhyphen/src/assets/logos/M-.png" alt="logo" width="300"/>
+M- allows you to book a ticket for the outdoor cinema. You could pick a movie and date/time through this website. You could also review your booked tickets as well. Additionally, you may browse the movies through the Genre filtering or the Search Bar with just any keyword (actor names, title, genre; etc...). 
+On top of everything, you need to be logged in with your GitHub account before you make your booking. 
 
-This website is built for: [Microsoft Student Accelerator 2021-Phase-2] https://nzmsa.netlify.app/
+This website is built for: [Microsoft Student Accelerator 2021-Phase-2](https://nzmsa.netlify.app/)
 
 This website is built with:
 
