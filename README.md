@@ -23,6 +23,8 @@ This website is built with:
 ![website display - home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/showcast.png)
 ![website display - home 2](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/showcast2.png)
 ![website display - movie information](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/movie_info.png)
+![website display - browse](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/search.png)
+![website display - tickets](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/ticket.png)
 
 ### [/booking] [https://mhyphen.azurewebsites.net/booking]
 
@@ -30,4 +32,4 @@ This website is built with:
 
 # UI on Mobile
 
-![website display on phone- home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/mobile_home.png)
+![website display on phone- home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/mobile.png)
