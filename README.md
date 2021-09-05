@@ -20,14 +20,14 @@ This website is built with:
 
 ### [/home](https://mhyphen.azurewebsites.net/home)
 
-![website display - home 1](https://github.com/molinalim/mhyphen-frontend/webdisplay/blob/main/showcast.png)
-![website display - home 2](https://github.com/molinalim/mhyphen-frontend/webdisplay/blob/main/showcast2.png)
-![website display - movie information](https://github.com/molinalim/mhyphen-frontend/webdisplay/blob/main/movie_info.png)
+![website display - home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/showcast.png)
+![website display - home 2](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/showcast2.png)
+![website display - movie information](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/movie_info.png)
 
 ### [/booking] [https://mhyphen.azurewebsites.net/booking]
 
-![website display - booking 1](https://github.com/molinalim/mhyphen-frontend/webdisplay/blob/main/booking.png)
+![website display - booking 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/booking.png)
 
 # UI on Mobile
 
-![website display on phone- home 1](https://github.com/molinalim/mhyphen-frontend/webdisplay/blob/main/mobile_home.png)
+![website display on phone- home 1](https://github.com/molinalim/mhyphen-frontend/blob/main/webdisplay/mobile_home.png)
