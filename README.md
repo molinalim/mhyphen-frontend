@@ -1,6 +1,6 @@
 # mhyphen- outdoor cinema ticket booking website: [M- hosted on Azure](https://mhyphen.azurewebsites.net/)
 
-![M- logo](https://github.com/molinalim/mhyphen-frontend/mhyphen/src/logo.svg)
+![M- logo](https://github.com/molinalim/mhyphen-frontend/blob/main/mhyphen/src/logo.svg)
 
 This website is built for: [Microsoft Student Accelerator 2021-Phase-2] https://nzmsa.netlify.app/
 
