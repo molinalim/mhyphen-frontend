@@ -16,19 +16,21 @@ export const Footer = () => {
       <Hidden smDown>
         <Grid
           container
-          direction="row"
+          direction="column"
           justify="space-between"
-          alignItems="flex-start"
-          spacing={3}
+          alignItems="center"
+          spacing={0}
+          className="footer__content"
         >
-          <Grid item xs={9}>
-            <FooterSocialIcon {...MICROSOFT_LOGO} />
-            {`Copyright © Microsoft Student Accelerator, 2021. All rights reserved`}
-          </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} alignItems="center">
+            {`Terms of Service | Privacy Policy | Operation Policy | Contact Us`}
             {SOCIAL_MEDIA.map((icon: SocialIconProps) => {
               return <FooterSocialIcon key={icon.name} {...icon} />;
             })}
+          </Grid>
+          <Grid item xs={12}>
+            <FooterSocialIcon {...MICROSOFT_LOGO} />
+            {`Copyright © M-Corporation and MSA, 2021. All rights reserved`}
           </Grid>
         </Grid>
       </Hidden>
@@ -38,7 +40,7 @@ export const Footer = () => {
           <Grid item>
             <Grid container direction="row" justify="space-between" spacing={3}>
               <Grid item>
-                <Box marginLeft={2}>{`© MSA 2021`}</Box>
+                <Box marginLeft={6}>{`© M- and MSA 2021`}</Box>
               </Grid>
               <Grid item>
                 <Link color="inherit" href={PRIVACY_POLICY}>
@@ -53,7 +55,7 @@ export const Footer = () => {
             </Grid>
           </Grid>
           <Grid item>
-            <Box marginLeft={8}>
+            <Box marginLeft={17}>
               {SOCIAL_MEDIA.map((icon: SocialIconProps) => {
                 return <FooterSocialIcon key={icon.name} {...icon} />;
               })}
