@@ -36,16 +36,11 @@ export const Footer = () => {
       </Hidden>
       {/* Mobile view of footer, looks very different :) */}
       <Hidden smUp>
-        <Grid container direction="row">
+        <Grid container direction="row" justify="center">
           <Grid item>
             <Grid container direction="row" justify="space-between" spacing={3}>
               <Grid item>
-                <Box marginLeft={6}>{`© M- and MSA 2021`}</Box>
-              </Grid>
-              <Grid item>
-                <Link color="inherit" href={PRIVACY_POLICY}>
-                  Privacy policy
-                </Link>
+                <Box marginLeft={0}>{`© M- and MSA 2021`}</Box>
               </Grid>
               <Grid item>
                 <Link color="inherit" href={TERMS_OF_USE}>
@@ -54,8 +49,8 @@ export const Footer = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item>
-            <Box marginLeft={17}>
+          <Grid item justify="center">
+            <Box>
               {SOCIAL_MEDIA.map((icon: SocialIconProps) => {
                 return <FooterSocialIcon key={icon.name} {...icon} />;
               })}
